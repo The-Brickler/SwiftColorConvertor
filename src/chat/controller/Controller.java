@@ -23,4 +23,11 @@ public class Controller
 		
 		keyboardInput.close();
 	}
+	
+	private String interactWithChatbot(String text)
+	{
+		String result = "";
+		
+		return result;
+	}
 }

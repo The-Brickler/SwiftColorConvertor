@@ -17,7 +17,16 @@ public class Controller
 	
 	public void start()
 	{
+		System.out.println("What do you want tot say to the chatbot?");
+		String userText = keyboardInput.nextLine();
 		
+		while (!userText.equalsIgnoreCase("shutdown"))
+		{
+			String chatbotResponse = interactWithChatbot(userText);
+			System.out.println(chatbotResponse);
+			
+			userText = keyboardInput.nextLine();
+		}
 		
 		
 		
@@ -27,6 +36,8 @@ public class Controller
 	private String interactWithChatbot(String text)
 	{
 		String result = "";
+		
+		result = chatbot.processText(text);
 		
 		return result;
 	}

@@ -2,31 +2,31 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import java.util.Scanner;
+import chat.view.Popup;
 
 public class Controller
 {
 	private Chatbot chatbot;
 	private Scanner keyboardInput;
-	
+	private Popup view;
 	
 	public Controller()
 	{
 		this.chatbot = new Chatbot("Super smart chatbot");
 		this.keyboardInput = new Scanner(System.in);
+		this.view = new Popup();
 	}
 	
 	public void start()
 	{
-		System.out.println("What do you want tot say to the chatbot?");
-		String userText = keyboardInput.nextLine();
+		String userText = view.askQuestion("What do you want tot say to the chatbot?");
 		
 		while (!userText.equalsIgnoreCase("shutdown"))
 		{
 			String chatbotResponse = interactWithChatbot(userText);
-			System.out.println("Chatbot says:");
-			System.out.println(chatbotResponse);
+			view.displayMessage("Chatbot says:\n" + chatbotResponse);
 			
-			userText = keyboardInput.nextLine();
+			userText = view.askQuestion("What else do you want to say?");
 		}
 		
 		

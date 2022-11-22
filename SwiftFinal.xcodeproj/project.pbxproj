@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C7204B4A292D56B0001ED1D1 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7204B49292D56B0001ED1D1 /* SecondView.swift */; };
+		C7204B4E292D5784001ED1D1 /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7204B4D292D5784001ED1D1 /* RGBColor.swift */; };
 		C7430D3928F08A2000534B12 /* SwiftFinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7430D3828F08A2000534B12 /* SwiftFinalApp.swift */; };
 		C7430D3B28F08A2000534B12 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7430D3A28F08A2000534B12 /* CreateView.swift */; };
 		C7430D3D28F08A2100534B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7430D3C28F08A2100534B12 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		C7204B49292D56B0001ED1D1 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		C7204B4D292D5784001ED1D1 /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
 		C7430D3528F08A2000534B12 /* SwiftFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7430D3828F08A2000534B12 /* SwiftFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFinalApp.swift; sourceTree = "<group>"; };
 		C7430D3A28F08A2000534B12 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C7204B4C292D5769001ED1D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7204B4D292D5784001ED1D1 /* RGBColor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C7430D2C28F08A2000534B12 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		C7430D3728F08A2000534B12 /* SwiftFinal */ = {
 			isa = PBXGroup;
 			children = (
+				C7204B4C292D5769001ED1D1 /* Model */,
 				C7430D6228F08A5400534B12 /* Resources */,
 				C7204B4B292D56EE001ED1D1 /* Views */,
 				C7430D3E28F08A2100534B12 /* Preview Content */,
@@ -279,6 +290,7 @@
 				C7204B4A292D56B0001ED1D1 /* SecondView.swift in Sources */,
 				C7430D3B28F08A2000534B12 /* CreateView.swift in Sources */,
 				C7430D3928F08A2000534B12 /* SwiftFinalApp.swift in Sources */,
+				C7204B4E292D5784001ED1D1 /* RGBColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

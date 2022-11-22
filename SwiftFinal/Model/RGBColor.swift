@@ -88,4 +88,35 @@ class RGBColor
         let finalColor : HSVColor = HSVColor(hue: hue, sat: sat, value: value)
         return finalColor
     }
+    
+    func convertToHex() -> String
+    {
+        
+    }
+    
+    func decimalToHex(_ number: Int) -> String
+    {
+        var quot = number / 16
+        var rem = number % 16
+        var nextChar = ""
+        
+        while (quot < 0)
+        {
+            switch rem
+            {
+            case 10:
+                nextChar = "A"
+            case 11:
+                nextChar = "B"
+            case 12:
+                nextChar = "C"
+            case 14:
+                nextChar = "D"
+            case 15:
+                nextChar = "E"
+            case 16:
+                nextChar = "F"
+            }
+        }
+    }
 }

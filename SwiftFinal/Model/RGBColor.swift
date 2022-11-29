@@ -135,4 +135,11 @@ class RGBColor
         
         return output
     }
+    
+    func randomizeColor() -> Void
+    {
+        red   =  Int ( arc4random() % UInt32(256) )
+        green =  Int ( arc4random() % UInt32(256) )
+        blue  =  Int ( arc4random() % UInt32(256) )
+    }
 }

@@ -91,7 +91,16 @@ class RGBColor
     
     func convertToHex() -> String
     {
+        var hexCode = "#"
+        let redCode = decimalToHex(red)
+        let greenCode = decimalToHex(green)
+        let blueCode = decimalToHex(blue)
         
+        hexCode.append(redCode)
+        hexCode.append(greenCode)
+        hexCode.append(blueCode)
+        
+        return hexCode
     }
     
     func decimalToHex(_ number: Int) -> String
@@ -99,6 +108,7 @@ class RGBColor
         var quot = number / 16
         var rem = number % 16
         var nextChar = ""
+        var output = ""
         
         while (quot < 0)
         {
@@ -116,7 +126,13 @@ class RGBColor
                 nextChar = "E"
             case 16:
                 nextChar = "F"
+            default:
+                nextChar = String(rem)
             }
+            
+            output.insert(contentsOf: nextChar, at: String.Index(utf16Offset: 0, in: output))
         }
+        
+        return output
     }
 }

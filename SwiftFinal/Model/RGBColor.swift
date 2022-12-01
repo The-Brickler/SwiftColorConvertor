@@ -40,16 +40,18 @@ class RGBColor
     
     public func convertToHSV() -> HSVColor
     {
-        var hue : Double
-        var sat : Double
-        var value : Double
+        var hue : Double //From 0 to 360
+        var sat : Double //From 0 100
+        var value : Double //From 0 to 1
         
         let redPercent = Double(red) / 255.0
         let greenPercent = Double(green) / 255.0
         let bluePercent = Double(blue) / 255.0
         
-        let max = max(redPercent, greenPercent, bluePercent)
-        let min = min(redPercent, greenPercent, bluePercent)
+        let colorArray = [redPercent, greenPercent, bluePercent]
+        
+        let max = colorArray.max()!
+        let min = colorArray.min()!
         let delta = max - min
         
         //Hue Calculation
@@ -62,11 +64,11 @@ class RGBColor
             switch max
             {
             case redPercent:
-                hue = (60.0 * ((greenPercent - redPercent) / delta).truncatingRemainder(dividingBy: 6))
+                hue = (60.0 * ((greenPercent - bluePercent) / delta) + 360.0) % 360
             case greenPercent:
-                hue = (60.0 * ((bluePercent - redPercent) / delta) + 2)
+                hue = (60.0 * ((bluePercent - redPercent) / delta ) + 120.0) % 360
             case bluePercent:
-                hue = (60.0 * ((redPercent - greenPercent) / delta) + 4)
+                hue = (60.0 * ((redPercent - greenPercent) / delta ) + 240.0) % 360
             default:
                 hue = 0.0
             }
@@ -75,7 +77,7 @@ class RGBColor
         //Sat Calculation
         if (max != 0)
         {
-            sat = (delta / max)
+            sat = (delta / max) * 100
         }
         else
         {
@@ -83,7 +85,7 @@ class RGBColor
         }
         
         //Value Calculation
-        value = max
+        value = max * 100
         
         let finalColor : HSVColor = HSVColor(hue: hue, sat: sat, value: value)
         return finalColor

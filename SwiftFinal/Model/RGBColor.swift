@@ -63,11 +63,11 @@ class RGBColor
             switch max
             {
             case Double(redPercent):
-                hue = (60.0 * ((greenPercent - bluePercent) / delta) + 360.0) % 360
+                hue = (60.0 * ((greenPercent - bluePercent) / delta) + 360.0).truncatingRemainder(dividingBy: 360)
             case Double(greenPercent):
-                hue = (60.0 * ((bluePercent - redPercent) / delta ) + 120.0) % 360
+                hue = (60.0 * ((bluePercent - redPercent) / delta ) + 120.0).truncatingRemainder(dividingBy: 360)
             case Double(bluePercent):
-                hue = (60.0 * ((redPercent - greenPercent) / delta ) + 240.0) % 360
+                hue = (60.0 * ((redPercent - greenPercent) / delta ) + 240.0).truncatingRemainder(dividingBy: 360)
             default:
                 hue = 0.0
             }

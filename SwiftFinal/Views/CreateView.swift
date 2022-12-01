@@ -16,7 +16,7 @@ struct CreateView: View
             VStack
             {
                 Text("Screen 1")
-                NavigationLink("Go to screen 2", destination: SecondView())
+                NavigationLink("Go to screen 2", destination: RGBView())
             }
         }
     }

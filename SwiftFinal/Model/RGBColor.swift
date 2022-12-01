@@ -17,9 +17,9 @@ class RGBColor
     
     init()
     {
-        self.red = 0
-        self.green = 0
-        self.blue = 0
+        self.red   =  Int ( arc4random() % UInt32(256) )
+        self.green =  Int ( arc4random() % UInt32(256) )
+        self.blue  =  Int ( arc4random() % UInt32(256) )
     }
     
     init(red: Int, green: Int, blue: Int)
@@ -29,7 +29,7 @@ class RGBColor
         self.blue = blue
     }
     
-    func convertToColor() -> Color
+    public func convertToColor() -> Color
     {
         let redPercent = Double(red) / 255.0
         let greenPercent = Double(green) / 255.0
@@ -38,7 +38,7 @@ class RGBColor
         return Color(red: redPercent, green: greenPercent, blue: bluePercent)
     }
     
-    func convertToHSV() -> HSVColor
+    public func convertToHSV() -> HSVColor
     {
         var hue : Double
         var sat : Double
@@ -48,9 +48,9 @@ class RGBColor
         let greenPercent = Double(green) / 255.0
         let bluePercent = Double(blue) / 255.0
         
-        var max = max(redPercent, greenPercent, bluePercent)
-        var min = min(redPercent, greenPercent, bluePercent)
-        var delta = max - min
+        let max = max(redPercent, greenPercent, bluePercent)
+        let min = min(redPercent, greenPercent, bluePercent)
+        let delta = max - min
         
         //Hue Calculation
         if (delta == 0)
@@ -89,54 +89,55 @@ class RGBColor
         return finalColor
     }
     
-    func convertToHex() -> String
+    public func convertToHex() -> String
     {
-        var hexCode = "#"
-        let redCode = decimalToHex(red)
-        let greenCode = decimalToHex(green)
-        let blueCode = decimalToHex(blue)
+        let redCode = decimalToHex(self.red)
+        let greenCode = decimalToHex(self.green)
+        let blueCode = decimalToHex(self.blue)
         
-        hexCode.append(redCode)
-        hexCode.append(greenCode)
-        hexCode.append(blueCode)
+        let hexCode = "#\(redCode)\(greenCode)\(blueCode)"
         
         return hexCode
     }
     
-    func decimalToHex(_ number: Int) -> String
+    private func decimalToHex(_ number: Int) -> String
     {
-        var quot = number / 16
-        var rem = number % 16
-        var nextChar = ""
-        var output = ""
-        
-        while (quot < 0)
-        {
-            switch rem
-            {
-            case 10:
-                nextChar = "A"
-            case 11:
-                nextChar = "B"
-            case 12:
-                nextChar = "C"
-            case 14:
-                nextChar = "D"
-            case 15:
-                nextChar = "E"
-            case 16:
-                nextChar = "F"
-            default:
-                nextChar = String(rem)
-            }
-            
-            output.insert(contentsOf: nextChar, at: String.Index(utf16Offset: 0, in: output))
-        }
-        
-        return output
+        var output = String(number, radix: 16)
+        return output.uppercased()
+//        var quot = number / 16
+//        var rem = number % 16
+//        var nextChar = ""
+//        var output = ""
+//
+//        while (quot < 0)
+//        {
+//            switch rem
+//            {
+//            case 10:
+//                nextChar = "A"
+//            case 11:
+//                nextChar = "B"
+//            case 12:
+//                nextChar = "C"
+//            case 14:
+//                nextChar = "D"
+//            case 15:
+//                nextChar = "E"
+//            case 16:
+//                nextChar = "F"
+//            default:
+//                nextChar = String(rem)
+//            }
+//
+//            output += nextChar
+//            rem = quot % 16
+//            quot /= 16
+//        }
+//
+//        return output
     }
     
-    func randomizeColor() -> Void
+    public func randomizeColor() -> Void
     {
         red   =  Int ( arc4random() % UInt32(256) )
         green =  Int ( arc4random() % UInt32(256) )

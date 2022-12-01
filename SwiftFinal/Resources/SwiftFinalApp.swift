@@ -2,7 +2,6 @@
 //  SwiftFinalApp.swift
 //  SwiftFinal
 //
-//  Created by Brunson, Cami on 10/7/22.
 //
 
 import SwiftUI

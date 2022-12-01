@@ -2,7 +2,6 @@
 //  SwiftFinalUITests.swift
 //  SwiftFinalUITests
 //
-//  Created by Brunson, Cami on 10/7/22.
 //
 
 import XCTest

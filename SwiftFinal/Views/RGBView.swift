@@ -2,7 +2,6 @@
 //  RGBView.swift
 //  SwiftFinal
 //
-//  Created by Brunson, Cami on 11/22/22.
 //
 
 import SwiftUI

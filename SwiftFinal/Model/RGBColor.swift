@@ -2,7 +2,6 @@
 //  RGBColor.swift
 //  SwiftFinal
 //
-//  Created by Brunson, Cami on 11/22/22.
 //
 
 import Foundation
@@ -63,11 +62,11 @@ class RGBColor
         {
             switch max
             {
-            case redPercent:
+            case Double(redPercent):
                 hue = (60.0 * ((greenPercent - bluePercent) / delta) + 360.0) % 360
-            case greenPercent:
+            case Double(greenPercent):
                 hue = (60.0 * ((bluePercent - redPercent) / delta ) + 120.0) % 360
-            case bluePercent:
+            case Double(bluePercent):
                 hue = (60.0 * ((redPercent - greenPercent) / delta ) + 240.0) % 360
             default:
                 hue = 0.0

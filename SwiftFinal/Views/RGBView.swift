@@ -8,25 +8,35 @@ import SwiftUI
 
 struct RGBView: View
 {
-    var selectedColor = RGBColor()
+    @ObservedObject var selectedColor = RGBColor()
     var body: some View
     {
         ZStack
         {
             selectedColor.convertToColor()
-            var selectedHSV = selectedColor.convertToHSV()
+            let selectedHSV = selectedColor.convertToHSV()
+            let invertedRGB = selectedColor.invert().convertToColor()
             VStack
             {
-                Text("RGB: (\(selectedColor.red), \(selectedColor.green), \(selectedColor.blue))")
-                        .foregroundColor(Color.white)
-                Text("HEX: \(selectedColor.convertToHex())")
-                    .foregroundColor(Color.white)
-                Text("HSV: \(Int(selectedHSV.hue)), \(Int(selectedHSV.sat)), \(Int(selectedHSV.value))")
+                Text("RGB:\t\(selectedColor.red), \(selectedColor.green), \(selectedColor.blue)")
+                        .foregroundColor(invertedRGB)
+                Text("HEX:\t\(selectedColor.convertToHex())")
+                    .foregroundColor(invertedRGB)
+                Text("HSV:\t\(Int(selectedHSV.hue)), \(Int(selectedHSV.sat)), \(Int(selectedHSV.value))")
+                    .foregroundColor(invertedRGB)
+                Button("Randomize", action: randomize)
 
             }
         }
     }
+    
+    func randomize() -> Void
+    {
+        selectedColor.randomizeColor()
+    }
 }
+
+
 
 struct RGBView_Previews: PreviewProvider
 {

@@ -8,11 +8,11 @@ import Foundation
 
 import SwiftUI
 
-class RGBColor
+class RGBColor : ObservableObject
 {
-    var red : Int
-    var green : Int
-    var blue : Int
+    @Published var red : Int
+    @Published var green : Int
+    @Published var blue : Int
     
     init()
     {
@@ -26,6 +26,19 @@ class RGBColor
         self.red = red
         self.green = green
         self.blue = blue
+    }
+    
+    public func invert() -> RGBColor
+    {
+        var invertedColor : RGBColor
+        
+        let invertedRed = 255 - red
+        let invertedGreen = 255 - green
+        let invertedBlue = 255 - blue
+        
+        invertedColor = RGBColor(red: invertedRed, green: invertedGreen, blue: invertedBlue)
+        
+        return invertedColor
     }
     
     public func convertToColor() -> Color

@@ -14,8 +14,11 @@ struct CreateView: View
         {
             VStack
             {
-                Text("Screen 1")
-                NavigationLink("Go to screen 2", destination: RGBView())
+                Text("Select input type")
+                HStack
+                {
+                    NavigationLink("RGB", destination: RGBView())
+                }
             }
         }
     }

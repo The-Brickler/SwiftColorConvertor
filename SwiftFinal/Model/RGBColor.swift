@@ -117,38 +117,12 @@ class RGBColor : ObservableObject
     private func decimalToHex(_ number: Int) -> String
     {
         var output = String(number, radix: 16)
+        if (output.count < 2)
+        {
+            output = "0\(output)"
+        }
+        
         return output.uppercased()
-//        var quot = number / 16
-//        var rem = number % 16
-//        var nextChar = ""
-//        var output = ""
-//
-//        while (quot < 0)
-//        {
-//            switch rem
-//            {
-//            case 10:
-//                nextChar = "A"
-//            case 11:
-//                nextChar = "B"
-//            case 12:
-//                nextChar = "C"
-//            case 14:
-//                nextChar = "D"
-//            case 15:
-//                nextChar = "E"
-//            case 16:
-//                nextChar = "F"
-//            default:
-//                nextChar = String(rem)
-//            }
-//
-//            output += nextChar
-//            rem = quot % 16
-//            quot /= 16
-//        }
-//
-//        return output
     }
     
     public func randomizeColor() -> Void

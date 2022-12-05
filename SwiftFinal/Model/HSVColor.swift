@@ -6,11 +6,11 @@
 
 import Foundation
 
-class HSVColor
+class HSVColor : ObservableObject
 {
-    var hue : Double
-    var sat : Double
-    var value : Double
+    @Published var hue : Double
+    @Published var sat : Double
+    @Published var value : Double
     
     init()
     {

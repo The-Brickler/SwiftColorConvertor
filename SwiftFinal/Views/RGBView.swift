@@ -9,6 +9,11 @@ import SwiftUI
 struct RGBView: View
 {
     @ObservedObject var selectedColor = RGBColor()
+    
+    @State var newRed : String = ""
+    @State var newGreen : String = ""
+    @State var newBlue : String = ""
+    
     var body: some View
     {
         ZStack
@@ -45,7 +50,13 @@ struct RGBView: View
                     .padding(5)
                     .accessibilityLabel("A button to randomize the color")
                     .accessibilityValue("Randomize")
-
+                
+                HStack {
+                    InputField(title: "Red", hint: "0 - 255", result : $newRed)
+                    InputField(title: "Green", hint: "0 - 255", result : $newGreen)
+                    InputField(title: "Blue", hint: "0-255", result : $newBlue)
+                }
+                
             }
         }
     }

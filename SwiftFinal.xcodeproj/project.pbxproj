@@ -17,6 +17,8 @@
 		C7430D4A28F08A2100534B12 /* SwiftFinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7430D4928F08A2100534B12 /* SwiftFinalTests.swift */; };
 		C7430D5428F08A2100534B12 /* SwiftFinalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7430D5328F08A2100534B12 /* SwiftFinalUITests.swift */; };
 		C7430D5628F08A2100534B12 /* SwiftFinalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7430D5528F08A2100534B12 /* SwiftFinalUITestsLaunchTests.swift */; };
+		C763819C294112D60098AC9A /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763819B294112D60098AC9A /* InputField.swift */; };
+		C763819E294118AC0098AC9A /* NumberOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763819D294118AC0098AC9A /* NumberOnly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		C7430D4F28F08A2100534B12 /* SwiftFinalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFinalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7430D5328F08A2100534B12 /* SwiftFinalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFinalUITests.swift; sourceTree = "<group>"; };
 		C7430D5528F08A2100534B12 /* SwiftFinalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFinalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C763819B294112D60098AC9A /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		C763819D294118AC0098AC9A /* NumberOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOnly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			children = (
 				C7430D3A28F08A2000534B12 /* CreateView.swift */,
 				C7204B49292D56B0001ED1D1 /* RGBView.swift */,
+				C763819B294112D60098AC9A /* InputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			children = (
 				C7204B4D292D5784001ED1D1 /* RGBColor.swift */,
 				C7204B4F292D61F1001ED1D1 /* HSVColor.swift */,
+				C763819D294118AC0098AC9A /* NumberOnly.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,9 +298,11 @@
 			files = (
 				C7204B4A292D56B0001ED1D1 /* RGBView.swift in Sources */,
 				C7430D3B28F08A2000534B12 /* CreateView.swift in Sources */,
+				C763819E294118AC0098AC9A /* NumberOnly.swift in Sources */,
 				C7430D3928F08A2000534B12 /* SwiftFinalApp.swift in Sources */,
 				C7204B4E292D5784001ED1D1 /* RGBColor.swift in Sources */,
 				C7204B50292D61F1001ED1D1 /* HSVColor.swift in Sources */,
+				C763819C294112D60098AC9A /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

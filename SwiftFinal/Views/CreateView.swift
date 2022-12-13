@@ -18,6 +18,7 @@ struct CreateView: View
                 HStack
                 {
                     NavigationLink("RGB", destination: RGBView())
+                    NavigationLink("HSV", destination: HSVView())
                 }
             }
         }

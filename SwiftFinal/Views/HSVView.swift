@@ -6,13 +6,13 @@
 
 import SwiftUI
 
-struct RGBView: View
+struct HSVView: View
 {
     @ObservedObject var selectedColor = RGBColor()
     
-    @State var newRed : Double = 0.0
-    @State var newGreen : Double = 0.0
-    @State var newBlue : Double = 0.0
+    @State var newHue : Double = 0.0
+    @State var newSat : Double = 0.0
+    @State var newValue : Double = 0.0
     
     var textWidth : Double = 100.0
     
@@ -20,7 +20,7 @@ struct RGBView: View
     {
         ZStack
         {
-            var newColor = RGBColor(red: Int(newRed), green: Int(newGreen), blue: Int(newBlue))
+            var newColor = HSVColor(hue: newHue, sat: newSat, value: newValue).convertToRGB()
             
             let backgroundColor = selectedColor.convertToColor()
             let selectedHSV = selectedColor.convertToHSV()
@@ -58,37 +58,37 @@ struct RGBView: View
                 
                 HStack
                 {
-                    Text("Red: \(Int(newRed))")
+                    Text("Hue: \(Int(newHue))")
                         .multilineTextAlignment(.leading)
                         .frame(width: textWidth)
                         .foregroundColor(Color.white)
                         .shadow(color: invertedRGB, radius: 3.0)
-                    Slider(value: $newRed, in: 0.0 ... 255.0)
+                    Slider(value: $newHue, in: 0.0 ... 359.0)
                         .padding(.trailing)
-                        .accentColor(Color(red: newRed / 255.0, green: 0.0, blue: 0.0))
+                        .accentColor(HSVColor(hue: newHue, sat: 1, value: 1).convertToRGB().convertToColor())
                 }
                 
                 HStack
                 {
-                    Text("Green: \(Int(newGreen))")
+                    Text("Sat: \(Int(newSat * 100))")
                         .multilineTextAlignment(.leading)
                         .frame(width: textWidth)
                         .foregroundColor(Color.white)
                         .shadow(color: invertedRGB, radius: 3.0)
-                    Slider(value: $newGreen, in: 0.0 ... 255.0)
+                    Slider(value: $newSat, in: 0.0 ... 1)
                         .padding(.trailing)
-                        .accentColor(Color(red: 0.0, green: newGreen / 255.0, blue: 0.0))
+                        .accentColor(HSVColor(hue: 0, sat: newSat, value: 1).convertToRGB().convertToColor())
                 }
                 HStack
                 {
-                    Text("Blue: \(Int(newBlue))")
+                    Text("Value: \(Int(newValue * 100))")
                         .multilineTextAlignment(.leading)
                         .frame(width: textWidth)
                         .foregroundColor(Color.white)
                         .shadow(color: invertedRGB, radius: 3.0)
-                    Slider(value: $newBlue, in: 0.0 ... 255.0)
+                    Slider(value: $newValue, in: 0.0 ... 1)
                         .padding(.trailing)
-                        .accentColor(Color(red: 0.0, green: 0.0, blue: newBlue / 255.0))
+                        .accentColor(HSVColor(hue: 0, sat: 0, value: newValue).convertToRGB().convertToColor())
                 }
                 Spacer(minLength: CGFloat(450.0))
                 ZStack{
@@ -108,18 +108,19 @@ struct RGBView: View
     
     func setColor() -> Void
     {
-        selectedColor.red = Int(newRed)
-        selectedColor.green = Int(newGreen)
-        selectedColor.blue = Int(newBlue)
+        let hsv = HSVColor(hue: newHue, sat: newSat, value: newValue).convertToRGB()
+        selectedColor.red = hsv.red
+        selectedColor.green = hsv.green
+        selectedColor.blue = hsv.blue
     }
 }
 
 
 
-struct RGBView_Previews: PreviewProvider
+struct HSVView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        RGBView()
+        HSVView()
     }
 }

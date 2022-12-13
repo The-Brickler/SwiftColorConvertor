@@ -14,13 +14,15 @@ struct RGBView: View
     @State var newGreen : Double = 0.0
     @State var newBlue : Double = 0.0
     
+    var savedColors : ColorStore
+    
     var textWidth : Double = 100.0
     
     var body: some View
     {
         ZStack
         {
-            var newColor = RGBColor(red: Int(newRed), green: Int(newGreen), blue: Int(newBlue))
+            let newColor = RGBColor(red: Int(newRed), green: Int(newGreen), blue: Int(newBlue))
             
             let backgroundColor = selectedColor.convertToColor()
             let selectedHSV = selectedColor.convertToHSV()
@@ -120,6 +122,6 @@ struct RGBView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        RGBView()
+        RGBView(savedColors: ColorStore())
     }
 }

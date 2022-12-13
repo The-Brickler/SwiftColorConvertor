@@ -8,11 +8,12 @@ import Foundation
 
 import SwiftUI
 
-class RGBColor : ObservableObject
+class RGBColor : ObservableObject, Identifiable
 {
     @Published var red : Int
     @Published var green : Int
     @Published var blue : Int
+    let id : UUID = UUID()
     
     init()
     {
@@ -130,5 +131,24 @@ class RGBColor : ObservableObject
         red   =  Int ( arc4random() % UInt32(256) )
         green =  Int ( arc4random() % UInt32(256) )
         blue  =  Int ( arc4random() % UInt32(256) )
+    }
+    
+    public func isValid() -> Bool
+    {
+        var valid = true
+        if (red < 0 || red > 255)
+        {
+            valid = false
+        }
+        if (green < 0 || green > 255)
+        {
+            valid = false
+        }
+        if (blue < 0 || blue > 255)
+        {
+            valid = false
+        }
+        
+        return valid
     }
 }

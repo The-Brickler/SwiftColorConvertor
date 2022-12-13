@@ -9,12 +9,11 @@ import SwiftUI
 struct RGBView: View
 {
     @ObservedObject var selectedColor = RGBColor()
+    @EnvironmentObject var savedColors : ColorStore
     
     @State var newRed : Double = 0.0
     @State var newGreen : Double = 0.0
     @State var newBlue : Double = 0.0
-    
-    var savedColors : ColorStore
     
     var textWidth : Double = 100.0
     
@@ -33,6 +32,7 @@ struct RGBView: View
             let formattedHSV = "\(Int(selectedHSV.hue)), \(Int(selectedHSV.sat)), \(Int(selectedHSV.value))"
             
             backgroundColor
+                .edgesIgnoringSafeArea(.top)
             
             VStack
             {
@@ -93,6 +93,8 @@ struct RGBView: View
                         .accentColor(Color(red: 0.0, green: 0.0, blue: newBlue / 255.0))
                 }
                 Spacer(minLength: CGFloat(450.0))
+                Button("SAVE", action: saveColor)
+                    .foregroundColor(invertedRGB)
                 ZStack{
                     newColor.convertToColor()
                     Button("Apply", action: setColor)
@@ -114,14 +116,22 @@ struct RGBView: View
         selectedColor.green = Int(newGreen)
         selectedColor.blue = Int(newBlue)
     }
+    
+    func saveColor() -> Void
+    {
+        if (!savedColors.colors[0].isValid())
+        {
+            savedColors.colors.removeFirst()
+        }
+        savedColors.colors.append(selectedColor)
+    }
 }
-
-
 
 struct RGBView_Previews: PreviewProvider
 {
+    
     static var previews: some View
     {
-        RGBView(savedColors: ColorStore())
+        RGBView()
     }
 }

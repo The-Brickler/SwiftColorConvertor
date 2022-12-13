@@ -18,10 +18,10 @@ struct CreateView: View
                 Text("Select input type")
                 HStack
                 {
-                    NavigationLink("RGB", destination: RGBView(savedColors: savedColors))
+                    NavigationLink("RGB", destination: RGBView())
                     NavigationLink("HSV", destination: HSVView())
                 }
-                NavigationLink("Saved Colors", destination: SavesView(savedColors: savedColors))
+                NavigationLink("Saved Colors", destination: SavesView())
             }
         }
     }

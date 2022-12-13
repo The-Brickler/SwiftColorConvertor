@@ -8,7 +8,7 @@ import SwiftUI
 
 struct SavesView: View
 {
-    let savedColors : ColorStore
+    @EnvironmentObject var savedColors : ColorStore
     
     var body: some View
     {
@@ -28,14 +28,24 @@ struct SavesView: View
                         {
                             color in
                             
-                            NavigationLink(color.convertToHex(), destination: ColorPreview(selectedColor: color))
-                                .foregroundColor(color.convertToColor())
+                            ZStack
+                            {
+                                color.convertToColor()
+                                    .edgesIgnoringSafeArea(.all)
+                                NavigationLink(color.convertToHex(), destination: ColorPreview(selectedColor: color))
+                                    .foregroundColor(color.convertToColor())
                                 .shadow(color: color.invert().convertToColor(), radius: 3)
+                            }
                         }
                     }
                 }
             }
         }
+    }
+    
+    func removeFallback() -> Void
+    {
+        savedColors.colors.removeFirst()
     }
 }
 
@@ -43,6 +53,6 @@ struct SavesView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        SavesView(savedColors: ColorStore(colors: [RGBColor(red: 0, green: 0, blue: 255)]))
+        SavesView()
     }
 }

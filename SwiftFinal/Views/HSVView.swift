@@ -9,6 +9,7 @@ import SwiftUI
 struct HSVView: View
 {
     @ObservedObject var selectedColor = RGBColor()
+    @EnvironmentObject var savedColors : ColorStore
     
     @State var newHue : Double = 0.0
     @State var newSat : Double = 0.0
@@ -20,7 +21,7 @@ struct HSVView: View
     {
         ZStack
         {
-            var newColor = HSVColor(hue: newHue, sat: newSat, value: newValue).convertToRGB()
+            let newColor = HSVColor(hue: newHue, sat: newSat, value: newValue).convertToRGB()
             
             let backgroundColor = selectedColor.convertToColor()
             let selectedHSV = selectedColor.convertToHSV()
@@ -90,7 +91,9 @@ struct HSVView: View
                         .padding(.trailing)
                         .accentColor(HSVColor(hue: 0, sat: 0, value: newValue).convertToRGB().convertToColor())
                 }
-                Spacer(minLength: CGFloat(450.0))
+                Spacer(minLength: CGFloat(400.0))
+                Button("SAVE", action: saveColor)
+                    .foregroundColor(invertedRGB)
                 ZStack{
                     newColor.convertToColor()
                     Button("Apply", action: setColor)
@@ -112,6 +115,15 @@ struct HSVView: View
         selectedColor.red = hsv.red
         selectedColor.green = hsv.green
         selectedColor.blue = hsv.blue
+    }
+    
+    func saveColor() -> Void
+    {
+        if (!savedColors.colors[0].isValid())
+        {
+            savedColors.colors.removeFirst()
+        }
+        savedColors.colors.append(selectedColor)
     }
 }
 

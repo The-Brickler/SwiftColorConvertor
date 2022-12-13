@@ -33,7 +33,7 @@ struct SavesView: View
                                 color.convertToColor()
                                     .edgesIgnoringSafeArea(.all)
                                 NavigationLink(color.convertToHex(), destination: ColorPreview(selectedColor: color))
-                                    .foregroundColor(color.convertToColor())
+                                    .foregroundColor(Color.white)
                                 .shadow(color: color.invert().convertToColor(), radius: 3)
                             }
                         }

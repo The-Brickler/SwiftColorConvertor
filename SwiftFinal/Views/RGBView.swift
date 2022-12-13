@@ -92,7 +92,7 @@ struct RGBView: View
                         .padding(.trailing)
                         .accentColor(Color(red: 0.0, green: 0.0, blue: newBlue / 255.0))
                 }
-                Spacer(minLength: CGFloat(450.0))
+                Spacer(minLength: CGFloat(400.0))
                 Button("SAVE", action: saveColor)
                     .foregroundColor(invertedRGB)
                 ZStack{

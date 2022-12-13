@@ -110,7 +110,11 @@ class RGBColor : ObservableObject, Identifiable
         let greenCode = decimalToHex(self.green)
         let blueCode = decimalToHex(self.blue)
         
-        let hexCode = "#\(redCode)\(greenCode)\(blueCode)"
+        var hexCode = "#\(redCode)\(greenCode)\(blueCode)"
+        if (!self.isValid())
+        {
+            hexCode = "INVALID"
+        }
         
         return hexCode
     }

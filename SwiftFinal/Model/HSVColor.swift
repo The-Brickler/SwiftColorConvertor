@@ -78,6 +78,19 @@ class HSVColor : ObservableObject
         green *= 256
         blue *= 256
         
+        if (red >= 256)
+        {
+            red = 255
+        }
+        if (green >= 256)
+        {
+            green = 255
+        }
+        if (blue >= 256)
+        {
+            blue = 255
+        }
+        
         converted = RGBColor(red: Int(red), green: Int(green), blue: Int(blue))
         
         return converted

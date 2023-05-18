@@ -78,7 +78,7 @@ struct HSVView: View
                         .shadow(color: invertedRGB, radius: 3.0)
                     Slider(value: $newSat, in: 0.0 ... 1)
                         .padding(.trailing)
-                        .accentColor(HSVColor(hue: 0, sat: newSat, value: 1).convertToRGB().convertToColor())
+                        .accentColor(HSVColor(hue: newHue, sat: newSat, value: 1).convertToRGB().convertToColor())
                 }
                 HStack
                 {
@@ -92,7 +92,7 @@ struct HSVView: View
                         .accentColor(HSVColor(hue: 0, sat: 0, value: newValue).convertToRGB().convertToColor())
                 }
                 Spacer(minLength: CGFloat(400.0))
-                Button("SAVE", action: saveColor)
+                Button("Save to History", action: saveColor)
                     .foregroundColor(invertedRGB)
                 ZStack{
                     newColor.convertToColor()

@@ -21,7 +21,7 @@ struct CreateView: View
                     NavigationLink("RGB", destination: RGBView())
                     NavigationLink("HSV", destination: HSVView())
                 }
-                NavigationLink("Saved Colors", destination: SavesView())
+                NavigationLink("Color History", destination: SavesView())
             }
         }
     }
